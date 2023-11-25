@@ -2,9 +2,8 @@ import React from "react";
 import { range } from "../../utils";
 import { WORD_LENGTH } from "../../constants";
 import { checkGuess } from "../../game-helpers";
-import { answer } from "../Game/Game";
 
-function Guess({ value }) {
+function Guess({ value, answer }) {
   const wordStatus = value && checkGuess(value, answer);
 
   const classNames = range(WORD_LENGTH).map((_, index) => {
