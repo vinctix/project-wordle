@@ -7,7 +7,7 @@ function Guess({ value }) {
     <p className="guess">
       {range(WORD_LENGTH).map((_, index) => (
         <span key={index} className="cell">
-          {value && value[index]}
+          {value?.at(index)}
         </span>
       ))}
     </p>
