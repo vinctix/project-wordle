@@ -15,16 +15,12 @@ function Game() {
 
   const handleGuess = (guess) => {
     console.info({ guess });
-
-    setGuesses((prevGuessResults) => [
-      ...prevGuessResults,
-      { id: crypto.randomUUID(), value: guess },
-    ]);
+    setGuesses((x) => [...x, guess]);
   };
 
   return (
     <>
-      <GuessResults results={guesses} />
+      <GuessResults guesses={guesses} />
       <GuessInput onGuess={handleGuess} />
     </>
   );

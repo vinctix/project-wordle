@@ -1,4 +1,5 @@
 import React from "react";
+import { WORD_LENGTH } from "../../constants";
 
 function GuessInput({ onGuess }) {
   const [guess, setGuess] = React.useState("");
@@ -16,8 +17,8 @@ function GuessInput({ onGuess }) {
         id="guess-input"
         type="text"
         value={guess}
-        pattern="[A-Z]{5,5}"
-        title="Enter a 5-letter word, using only the letters A-Z"
+        pattern={`[A-Z]{${WORD_LENGTH},${WORD_LENGTH}}`}
+        title={`Enter a ${WORD_LENGTH}-letter word, using only the letters A-Z`}
         onChange={(event) => setGuess(event.target.value.toUpperCase())}
         required={true}
       />
