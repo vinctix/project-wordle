@@ -6,24 +6,19 @@ import { checkGuess } from "../../game-helpers";
 function Guess({ value, answer }) {
   const wordStatus = value && checkGuess(value, answer);
 
-  const classNames = range(WORD_LENGTH).map((_, index) => {
-    const letterStatus = wordStatus?.at(index)?.status;
-
-    if (!letterStatus) {
-      return "cell";
-    }
-    return `cell ${letterStatus}`;
-  });
-
   return (
     <p className="guess">
-      {classNames.map((_, index) => (
-        <span key={index} className={classNames[index]}>
-          {value?.at(index)}
-        </span>
+      {range(WORD_LENGTH).map((_, index) => (
+        <Cell key={index} {...(wordStatus ? wordStatus[index] : {})} />
       ))}
     </p>
   );
+}
+
+function Cell({ letter, status }) {
+  const className = status ? `cell ${status}` : "cell";
+
+  return <span className={className}>{letter}</span>;
 }
 
 export default Guess;
