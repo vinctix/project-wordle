@@ -185,6 +185,10 @@ h1 {
   color: white;
 }
 
+.banner > button {
+  text-decoration: underline;
+}
+
 .visually-hidden {
   position: absolute;
   overflow: hidden;
